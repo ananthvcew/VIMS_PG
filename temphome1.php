@@ -1,0 +1,12 @@
+<?php 
+$ran=rand(1,8);
+if($ran<=2)
+header("Location:exam.php");
+else
+{
+if($ran<=8)
+  header("Location:http://103.207.4.243/tempexam.php");
+//else
+//header("Location:http://103.207.4.194/tempexam.php");
+}
+?>
