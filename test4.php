@@ -54,8 +54,8 @@ $tz=new DateTimeZone("Asia/Kolkata");
    print" <div class='road row' ><div class='col-lg-12'><b> Student Name    : </b> $name </div></div>";
    print" <div class='road row' ><div class='col-lg-12'><b> Unique ACK No.: </b> $sid</div></div>";
    print" <div class='road row' ><div class='col-lg-12'><b>Date & Time of Exam Completion :</b>$dd</div></div>";
-   print" <div class='road row' ><div class='col-lg-12'><b>Your Group :</b> $branch -". $s->getsubname($scode)."</div></div>";
-   print" <div class='road row' ><div class='col-lg-12'><b>Language  :</b>$tcode </div></div>";
+   print" <div class='road row' ><div class='col-lg-12'><b>Your Group :</b> $branch </div></div>";
+   // print" <div class='road row' ><div class='col-lg-12'><b>Language  :</b>$tcode </div></div>";
     print"</div>";
    print "<div class='road row' ><div class='col-lg-3  text-left'><input type=button value='Save' onclick='myPrint()'> </div></div> ";
    
@@ -63,7 +63,7 @@ $tz=new DateTimeZone("Asia/Kolkata");
 
  ?></b>
 
-</div></div></div></form></div>
+</div></div></div></form>
  
   <?php
 include'foot.html'
