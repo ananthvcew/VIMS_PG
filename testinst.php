@@ -26,13 +26,18 @@ $s=new DBCON();
 
 $scode=$_SESSION['branch'];
 //print $scode;
-$tcode=$_SESSION['lang'];
+if($scode=='M.A Tamil'){
+  $tcode="Tamil";
+}else{
+  $tcode="English";
+}
+
 //$tz=new DateTimeZone("Asia/Kolkata");
 //$d = new DateTime();
 //$d->setTimeZone($tz);
 //$dd=$d->format('d/m/y');
-$dd=rand(1,4);
-$set='s'.$dd;
+
+$set='s1';
 // if($dd==1){
 //     $set='s1';
 // }
@@ -49,7 +54,7 @@ $atmp = $s->isattempted1($rno);print "Attempt:".$atmp;
 	{
 	     print "<div class='card'>General  Instructions</div>";
 print"<div class='container'><div class='road row'><div class='col-lg-10'><font color=green><b>Welcome back Ms.".$_SESSION['name']." (".$rno."),</b></div></div>";                                                                                                                                                                
-print"<div class='road row'><div class='col-lg-10'><b>Your Group : ".$scode."-".$s->getsubname($scode)."  ; Your Exam Language :" .$tcode."</div></div>";
+print"<div class='road row'><div class='col-lg-10'><b>Your Group : ".$scode."  ; Your Exam Language :" .$tcode."</div></div>";
 //print"<div class='road row'><div class='col-lg-10'><b> Your Test is interrupted.. Kindly Try again after 10 Mins.... </b></div></div>";
 
 //  $sql    = "select * from  tmarkfinal where regno='".trim($rno)."' and type='ques'"  ;
@@ -95,7 +100,7 @@ print"<div class='road row'><div class='col-lg-10'><b>Your Group : ".$scode."-".
    print "<input type='hidden' id='set' name='set' value='".$set."' />"; 
     //  print "<input type='hidden' id='nxt' name='nxt' value='0' />"; 
 // 	 print "<input type='hidden' id='nxt' name='nxt' value='0' />";
-	 print " <input type=hidden name=scode value= ".$scode.">";	
+	 print " <input type=hidden name=scode value= '".$scode."'>";	
 print " <input type=hidden name=tcode value= ".$tcode.">";	
 print "<br><center> <input type='button' class='btn btn-primary' value='Continue Exam'  onClick='submit1()'/><br><br>";
 	}
@@ -104,7 +109,7 @@ print "<br><center> <input type='button' class='btn btn-primary' value='Continue
 	    //----------------//
    print "<div class='card'>General  Instructions</div>";
 print"<div class='container'><div class='road row'><div class='col-lg-10'><font color=green><b>Welcome Ms.".$_SESSION['name']." (".$rno."),</b></div></div>";                                                                                                                                                                
-print"<div class='road row'><div class='col-lg-10'><b>Your Group : ".$scode."-".$s->getsubname($scode)."  ; Your Exam Language :" .$tcode."</div></div>";
+print"<div class='road row'><div class='col-lg-10'><b>Your Group : ".$scode."  ; Your Exam Language :" .$tcode."</div></div>";
 $dur=$s->getexamduration($scode,$tcode);
 $_SESSION['duration']=$dur;
 $max=$s->getmaxques($scode,$tcode);
@@ -148,7 +153,7 @@ else{
     //---------Tamil-------//
    print "<div class='card'>  வழிமுறைகள்</div>";
 print"<div class='container'><div class='road row'><div class='col-lg-12'><b>நல்வரவு Ms.".$_SESSION['name']." (".$rno.")</b></div></div><div class='road row'><div class='col-lg-12'>";                                                                                                                                                                
-print"<b> பாடப்பிரிவு : ".$scode."-".$s->getsubname($scode)."</div></div><div class='road row'><div class='col-lg-12'>";
+print"<b> பாடப்பிரிவு : ".$scode."</div></div><div class='road row'><div class='col-lg-12'>";
 print"தேர்வு மொழி : ".$tcode."</div></div>";
 
 $dur=$s->getexamduration($scode,$tcode);
@@ -162,7 +167,7 @@ print " <div class='road row'><div class='col-lg-12'> 3. எல்லா கே�
 print " <div class='road row'><div class='col-lg-12'> 4. கால அவகாசம் முடிந்தால், தேர்வு தானாகவே சேமிக்கப்பட்டு சமர்ப்பிக்கப்படும். </div></div>";
 print "<div class='road row'><div class='col-lg-12 justify-content-around'> 5. நீங்கள் எந்த நேரத்திலும் முன்னேறலாம் (அடுத்த கேள்வி) அல்லது பின்னோக்கி நகர்த்தலாம் (முந்தைய கேள்வி).</div></div> <div class='road row'><div class='col-lg-12 justify-content'> 6. தேர்வில் கலந்து கொள்ளும்போது நீங்கள் ஏதேனும் இணையம் அல்லது பிற சிக்கல்களை எதிர்கொண்டால், பீதி அடைய வேண்டாம், நீங்கள் பதிலளித்த வினாக்களின் விடைகள் சேமிக்கப்படும், தேர்வை முடிக்க உங்களுக்கு கூடுதல் வாய்ப்பு வழங்கப்படும்.  </div></div>";
 print " <div class='road row'><div class='col-lg-12 justify-content-around'> 7. பரீட்சை எழுதும் போது, நீங்கள் பரீட்சை இணையப் பக்கத்தைக் குறைக்கவோ அல்லது வேறு இணையப் பக்கத்தைத் திறக்கவோ கூடாது. </div></div><div class='road row'><div class='col-lg-12'> 8. எந்த நேரத்திலும் கீழே குறிப்பிடப்பட்டுள்ள உதவி மைய்ய எண்களை அழைக்கலாம். </div></div>";
-print " <input type=hidden name=scode value= ".$scode.">";	
+print " <input type=hidden name=scode value= '".$scode."'>";	
 print " <input type=hidden name=tcode value= ".$tcode.">";	
 
 //print " <div class='road row'><div class='col-lg-12'> <b> தங்களுக்கு நமது கல்லூரியை பரிந்துரை செய்தவரின் விபரம்  (ஏதேனும் இருந்தால்)"; 

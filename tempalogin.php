@@ -36,7 +36,7 @@ if($row = mysqli_fetch_assoc($result))
   	    //echo"error to store log";
   	}
   	else{
-$scode=$row['branch'];
+$scode=$row['preperence'];
 if($scode=='VO' || $scode=='OT'){
     $scode='VO/OT';
 }

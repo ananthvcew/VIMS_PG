@@ -85,7 +85,7 @@ Instructions to Write the Exam/   தேர்வு வழிமுறைகள
 						?>
 						1. The Exam duration is  1 hour(60 Minutes)
 	 	            <br> 2. Total questions to be answered is 50
-	 	            <br><font color=green> 3.  username : Your +2 Registration Number 
+	 	            <br><font color=green> 3.  username : Your UG Registration Number 
 	 	            <br> 4. Password : Your Mobile Number </font>
 	 	            <br>
 	 	               1.தேர்வு காலம் 1 மணி நேரம் (60 நிமிடங்கள்)

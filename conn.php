@@ -222,13 +222,7 @@ function gettotal1($dt)
 function getsubcount($m,$s)
 {
 	$link=$this->linkarivu();
-	if($s=='VO/OT'){
-	   $sql="select count(sid) from student where (branch='VO' or branch='OT' or branch='VO/OT') and examlang='".$m."' ";
-	}
-	else{
-	  $sql="select count(sid) from student where branch='".$s."' and examlang='".$m."' ";  
-	}
-	
+	$sql="select count(sid) from student where preperence='".$s."' ";  	
 	//print $sql;
 	$result=mysqli_query($link,$sql);
 	if(!$result){
@@ -318,7 +312,7 @@ return null;
 function isattempted1($rno)
 {
 $l=$this->linkarivu();
-	$sql    = "select remarks from  tmark where type='ans' and regno=".trim($rno);
+	$sql    = "select remarks from  tmark where type='ans' and regno='".trim($rno)."'";
 $result = mysqli_query($l,$sql);  
 
 if (!$result) {
@@ -620,7 +614,7 @@ $l=$this->linkarivu();
 		$sql    = "select count(regno) from  result where  branch='".$branch."' ";
 	}
 	else{
-		$sql    = "select count(regno) from  result where  branch='".$branch."' and mark>=60 and preperence like '".$preperence."' ";			
+		$sql    = "select count(regno) from  result where  branch='".$branch."' and mark>=60  ";			
 	}
 $result = mysqli_query($l,$sql);  
 

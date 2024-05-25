@@ -45,7 +45,7 @@ require('conn.php');
 	 	  <div class="container">
 	 	        <div class="road row">
 	 	            <div class="col-lg-12">Username/பயனர்பெயர்
-	 	            <br><input type="text" class="form-control" name="uname"  placeholder='+2 Register Number'/></div>
+	 	            <br><input type="text" class="form-control" name="uname"  placeholder='UG Register Number'/></div>
 	 	        </div>
 	 	        <!--<div class="road row">-->
 	 	        <!--    <div class="col-lg-12">Select Password Type<br>-->

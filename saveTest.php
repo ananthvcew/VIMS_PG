@@ -1,5 +1,6 @@
 <?php
 require('conn.php');
+error_reporting(0);
 $s=new DBCON();
 $link=$s->linkarivu(); 
 $sql="select * from tmark where regno='".$_POST['regno']."' and scode='".$_POST['scode']."' and type='a'";
