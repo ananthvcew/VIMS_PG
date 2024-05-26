@@ -130,9 +130,9 @@ else{
 		print"<br><font color='#7c045f'><b>Username :".$regno." (Your UG register number) ";
 		print"<br>Password  : ".$cno1." (Your Mobile Number) </font>";
 		// if(date('Y-m-d',strtotime($row['es_date']))>=date("Y-m-d") || date('Y-m-d',strtotime($row['ee_date']))<=date("Y-m-d") ){
-		// Print"<br> You can write your exam today (".date("d-M-Y").") from 9:30AM to 5:00PM  <br>The Exam Link : <a href='https://vivekanandha.ac.in'>www.vivekanandha.ac.in,</a> <a href='https://vivekanandha.ac.in/vimsexam".date('Y').".php'>vims.vcew.ac.in</a><br>  ";
+		 Print"<br> You can write your exam today (".date("d-M-Y").") from 10:00AM to 6:00PM  <br>The Exam Link : <a href='https://vcewsdc.in/VIMS_PG/index.php'>www.vcewsdc.in/VIMS_PG/</a><br> ";
 		//  }else{
-			Print"<br></b></font>Exam Link will be send your registered mobile number  ";
+			//Print"<br></b></font>Exam Link will be send your registered mobile number  ";
 		//}
 		
 		print"<br>  ஆன்லைன்  விவேகானந்தா மெரிட் ஸ்காலர்ஷிப் நுழைவுத் தேர்வு - ".date('Y')." க்கு<br> வெற்றிகரமாக பதிவு செய்துள்ளீர் ";
@@ -140,9 +140,9 @@ else{
 		print"<br>கடவுச்சொல்  : ".$cno1." (உங்கள் தொடர்பு எண்)</font></b>";
 
 		// if(date('Y-m-d',strtotime($row['es_date']))>=date("Y-m-d") || date('Y-m-d',strtotime($row['ee_date']))<=date("Y-m-d") ){
-		 // Print"<br> இன்று (".date("d-M-Y").") காலை 9:30 மணி முதல் மாலை 6:00 மணி வரை உங்கள் தேர்வை எழுதலாம். <br>தேர்வுக்கான லிங்க் :  <a href='https://vivekanandha.ac.in'>www.vivekanandha.ac.in,</a> <a href='https://vivekanandha.ac.in/vimsexam".date('Y').".php'>vims.vcew.ac.in</a>";
+		 Print"<br> இன்று (".date("d-M-Y").") காலை 10:00 மணி முதல் மாலை 6:00 மணி வரை உங்கள் தேர்வை எழுதலாம். <br>தேர்வுக்கான லிங்க் :  <a href='https://vcewsdc.in/VIMS_PG/index.php'>www.vcewsdc.in/VIMS_PG/</a>";
 		//  }else{
-			print"<br>தேர்வுக்கான இணைய முகவரி தங்களது பதிவு செய்யப்பட்ட தொலைபேசி எண்ணுக்கு அனுப்பப்படும் ";
+			//print"<br>தேர்வுக்கான இணைய முகவரி தங்களது பதிவு செய்யப்பட்ட தொலைபேசி எண்ணுக்கு அனுப்பப்படும் ";
 		//}
 		print"</div>";
 		print"</font><div class='card-footer'>ACK.No: ".$sid;	
