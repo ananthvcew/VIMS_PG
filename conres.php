@@ -19,7 +19,7 @@
 
 
 <?php
-die();
+//die();
 require('conn.php');
 $s=new DBCON();
 $link=$s->linkarivu();
