@@ -653,7 +653,7 @@ return 0;
 }
 function getResult($regno,$scode,$set,$lang,$qusNo,$qus){
 	$l=$this->linkarivu();
-	$sql="select $qusNo from tmark where regno=".$regno." and type='a'";
+	echo $sql="select $qusNo from tmark where regno='".$regno."' and type='a'";
 	$res=mysqli_query($l,$sql);
 	if(!$res){
 		echo "errort to get Anws from tmark";

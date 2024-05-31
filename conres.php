@@ -23,24 +23,24 @@
 require('conn.php');
 $s=new DBCON();
 $link=$s->linkarivu();
-$sqlTmark="select * from tmark where type='q'";
-$resTmark=mysqli_query($link,$sqlTmark);
-if(!$resTmark){
-  echo"Error to get tmark Data";
-}
+// $sqlTmark="select * from tmark where type='q'";
+// $resTmark=mysqli_query($link,$sqlTmark);
+// if(!$resTmark){
+//   echo"Error to get tmark Data";
+// }
 
-while($rowTmark=mysqli_fetch_assoc($resTmark)){
-  $tot=0;
-  for($l=1;$l<=50;$l++){
-    $qusNo="q".$l;
-    $tot=$tot+$s->getResult($rowTmark['regno'],$rowTmark['scode'],$rowTmark['set'],$rowTmark['lang'],$qusNo,$rowTmark[$qusNo]);
-  }
-  $updateSql="update tmark set total='".($tot*2)."' where regno='".$rowTmark['regno']."'";
-  $resUp=mysqli_query($link,$updateSql);
-  if(!$resUp){
-    echo "error to update Result";
-  }
-}
+// while($rowTmark=mysqli_fetch_assoc($resTmark)){
+//   $tot=0;
+//   for($l=1;$l<=50;$l++){
+//     $qusNo="q".$l;
+//     $tot=$tot+$s->getResult($rowTmark['regno'],$rowTmark['scode'],$rowTmark['set'],$rowTmark['lang'],$qusNo,$rowTmark[$qusNo]);
+//   }
+//   $updateSql="update tmark set total='".($tot*2)."' where regno='".$rowTmark['regno']."'";
+//   $resUp=mysqli_query($link,$updateSql);
+//   if(!$resUp){
+//     echo "error to update Result";
+//   }
+// }
 
 $sqlDelete="delete from result";
     $result=mysqli_query($link,$sqlDelete);
