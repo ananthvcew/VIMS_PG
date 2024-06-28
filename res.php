@@ -9,7 +9,7 @@ include('top.php');
 <div class='container'>
 	<div class='road row'>
 		<div class='col-lg-2'></div>
-		<div class='col-lg-4'>+2 Register Number (Registered with VIMS) <br>+2 பதிவு எண் </div>
+		<div class='col-lg-4'>UG Register Number (Registered with VIMS) <br>UG பதிவு எண் </div>
 		<div class='col-lg-4'><input type='text' name='regno' class='form-control'></div>
 		<div class='col-lg-2'></div>
 	</div>

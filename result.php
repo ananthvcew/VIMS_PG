@@ -100,9 +100,11 @@ require('conn.php');
 $ms=$row['mark'];
 // if($ms<8)
 // $ms=8;
+
+
 	     $html .="<table ><tr><td width='200' height='70'>VIMS Unique Number </td><td width='310' height='65'>".$s->getstdetail1($rno,'at_regno')."</td></tr><tr><td width='200' height='65'>Date of Birth</td><td width='310' height='65'>".date('d-M-Y',strtotime($row['dob']))."</td></tr><tr><td width='200' height='55'>Mark</td><td width='310' height='55'>".$ms."</td></tr>";
 	     $html .="<tr><td width='200' height='60'>Exam Language</td><td width='310' height='60'>".$row['examlang']."</td></tr>";
-	     $html .="<tr><td width='200' height='60'>HSC Group</td><td width='500' height='60'>".$s->getsubname($row['branch'])."</td></tr></table><br>";
+	     $html .="<tr><td width='200' height='60'>Preference HS</td><td width='500' height='60'>".$row['preperence']."</td></tr></table><br>";
 	     
 	    // $html .="<table border=1><tr><td colspan='5' width='760' height='50' ALIGN='CENTER' bgcolor='#151F70'><font color='#FBFCFC' size=13><b>Grades & Fee Concession *</font><font color='#151F70'></td></tr><tr><td height='50' width='310' ALIGN='CENTER'>Degree / Course</td><td ALIGN='CENTER' height='50' width='90'>A</td><td ALIGN='CENTER' height='50' width='90'>B</td><td ALIGN='CENTER' height='50' width='90'>C</td><td ALIGN='CENTER' height='50' width='90'>D</td><td ALIGN='CENTER' height='50' width='90'>E</td></tr>";
 	    // $html .="<tr><font size=12><td height='60' width='310' >Engineering (B.E./B.Tech.)</td><td height='60'  width='90'>Rs.25,000/-</td><td height='60'  width='90'>Rs.20,000/-</td><td height='60'  width='90'>Rs.15,000/-</td><td height='60'  width='90'>Rs.10,000/-</td><td height='60'  width='90'>Rs.5,000/-</td></tr>";
@@ -114,7 +116,7 @@ $ms=$row['mark'];
 	   //  }
 	   
 	    // $html .="</td></tr>";
-	      $html .="<tr><td colspan='5' width='760' height='75'><font color='red' size=11><u>Contact Admission Office with the following documents :</u></font> <br> <font color='#0000EE' size=12><b> a) Aadhar Card <br> b) 10th Mark Sheet <br> c) +1 Marksheet <br> d) +2 (HSC) Marksheet / +2 (HSC) Hall Ticket <br> e) Community certificate <br> f) TC if available <br> g) Passport size photo 2 Nos and <br> h) Printed or soft copy of VIMS Result. <br> (or) Any Available Certificate ";
+	      $html .="<tr><td colspan='5' width='760' height='75'><font color='red' size=11><u>Contact Admission Office with the following documents :</u></font> <br> <font color='#0000EE' size=12><b> a) Aadhar Card <br> b) UG All Mark Sheet & Consolidated Mark Sheet if available <br> c) Community certificate <br> d) TC & Course Completion Certificate  <br> e) Provisional Certificate if available <br> f) UG Degree Certificate if available <br> g) Passport size photo 2 Nos and <br> h) Printed or soft copy of VIMS Result. <br> (or) Any Available Certificate ";
 	     $html .="</font></td></tr></table>";
 	     // $html .="<table border=1><tr><td colspan='2'  ALIGN='CENTER' ><font color='white' bgcolor='navy' size=13></font></td></tr>";
 	     // $html .="<tr><td ALIGN='CENTER' ><br></td>";
