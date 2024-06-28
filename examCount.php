@@ -36,7 +36,7 @@ $i=1;
 	</tbody>
 </table><br><br>
         
-        <table class='table table-bordered' style='width:80%!important; margin:auto;'>
+        <!-- <table class='table table-bordered' style='width:80%!important; margin:auto;'>
 	<thead class='text-center bg-info'>
         <tr><th Colspan="3">Phase - II</th></tr>
 		<tr>
@@ -64,5 +64,5 @@ $i=1;
 			}
 		?>
 	</tbody>
-</table>
+</table> -->
         

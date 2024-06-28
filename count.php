@@ -10,7 +10,7 @@
 <div class='card'>Count</div>
 <table id="example1" class="table table-bordered table-striped">
     <thead>
-        <tr><th>S.No.</th><th>Subject</th><th>Tamil</th><th>English</th></tr>
+        <tr><th>S.No.</th><th>Subject</th><th>Count</th></tr>
     </thead>
     <tbody>
 <?php
@@ -30,15 +30,15 @@ while($row=mysqli_fetch_assoc($res)){
     }
     $sce=$s->getsubcount('English',$scode);
     $toe=$toe+$sce;
-    $sct=$s->getsubcount('Tamil',$scode);
-    $tot=$tot+$sct;
- print"<tr><td> $i</td><td>".$scode." - ".$row['subname']."</td><td class='text-center'>".$sct."</td><td class='text-center'>".$sce."</td></tr>";  
+    // $sct=$s->getsubcount('Tamil',$scode);
+    // $tot=$tot+$sct;
+ print"<tr><td> $i</td><td>".$scode." - ".$row['subname']."</td><td class='text-center'>".$sce."</td></tr>";  
 }
 $i=$i+1;
-print"<tr class='font-weight-bolder'><td><b>$i</b></td><td class='text-right font-weight-bolder'><b>Total</b></td><td class='text-center font-weight-bolder'><b>".$tot."</b></td><td class='text-center'><b>".$toe."</b></td></tr>";
+print"<tr class='font-weight-bolder'><td><b>$i</b></td><td class='text-right font-weight-bolder'><b>Total</b></td><td class='text-center font-weight-bolder'><b>".$toe."</b></td></tr>";
 $gt=$tot+$toe;
 $i=$i+1;
-print"<tr class='font-weight-bolder'><td><b>$i</b></td><td  class='text-right font-weight-bolder'><b>Grand Total</b></td><td></td><td class='text-center font-weight-bolder'><b>".$gt."</b></td></tr>";
+// print"<tr class='font-weight-bolder'><td><b>$i</b></td><td  class='text-right font-weight-bolder'><b>Grand Total</b></td><td></td><td class='text-center font-weight-bolder'><b>".$gt."</b></td></tr>";
 
 
 ?>

@@ -126,7 +126,7 @@ $obj1=new Tmark();
 <table class="table table-bordered tablesorter table_filter">
   <thead>
     <tr>
-      <th>S.No</th><th>Reg. No</th><th>Student Name</th><th>Contact No 1</th><th>Contact No 2</th><th>Father Name</th><th>District</th><th>Exam Language</th><th class="filter-select filter-exact" data-placeholder="group">+2 Group</th><th class="filter-select filter-exact" data-placeholder="status">Exam Status</th><th>Total Questions Answerd</th><th>Time Remaining</th>
+      <th>S.No</th><th>Reg. No</th><th>Student Name</th><th>Contact No 1</th><th>Contact No 2</th><th>Father Name</th><th>District</th><th class="filter-select filter-exact" data-placeholder="group">PG Preference</th><th class="filter-select filter-exact" data-placeholder="status">Exam Status</th><th>Total Questions Answerd</th><th>Time Remaining</th>
     </tr>
   </thead>
   <tbody>
@@ -137,7 +137,7 @@ $obj1=new Tmark();
       $tmark=$obj1->getExamStatus($row['regno']);
       //print_r($tmark);
       //die();
-      echo "<tr><td>$i</td><td>".$row['regno']."</td><td>".$row['name']."</td><td>".$row['cno1']."</td><td>".$row['cno2']."</td><td>".$row['fathername']."</td><td>".$row['district']."</td><td id='examlang".$row['regno']."' ondblclick='myChange(this)' data-val='".$row['examlang']."' data-regno='".$row['regno']."' data-name='examlang'>".$row['examlang']."</td><td id='branch".$row['regno']."' ondblclick='myChange(this)' data-val='".$row['branch']."' data-regno='".$row['regno']."' data-name='branch'>".$row['branch']."</td>";
+      echo "<tr><td>$i</td><td>".$row['regno']."</td><td>".$row['name']."</td><td>".$row['cno1']."</td><td>".$row['cno2']."</td><td>".$row['fathername']."</td><td>".$row['district']."</td><td id='branch".$row['regno']."' ondblclick='myChange(this)' data-val='".$row['preperence']."' data-regno='".$row['regno']."' data-name='branch'>".$row['preperence']."</td>";
       echo"<td  id='status".$row['regno']."' ondblclick='myChange1(this)' data-val='".$tmark['status']."' data-regno='".$row['regno']."' data-name='status' data-rm='".$tmark['remark']."'>";
       if($tmark['status']==0){
         print"<font class='btn btn-danger'>Yet to Start</font>";
@@ -193,14 +193,24 @@ $obj1=new Tmark();
       $("#"+elem.id).html(field)
     }else if(name=='branch'){
      var exlg=$(elem).data("val");
-      var field ="<select data-name='branch' name='branch' data-regno='"+regno+"' class='form-control lang' onchange='saveMyData(this)' id='bran"+regno+"'>";      
-              field +="<option value=''>Select Language</option>";
-              field +="<option>MPCC</option>";      
-              field +="<option>MPCB</option>";
-              field +="<option>PCBC</option>";
-              field +="<option>CACE</option>";
-              field +="<option>PCBZ</option>";
-              field +="<option>VO/OT</option>";
+      var field ="<select data-name='preperence' name='preperence' data-regno='"+regno+"' class='form-control lang' onchange='saveMyData(this)' id='bran"+regno+"'>";      
+              field +="<option value=''>Select Preference</option>";
+              field +="<option>M.A Tamil</option>";      
+              field +="<option>M.A English</option>";
+              field +="<option>M.Sc Computer Science</option>";
+              field +="<option>M.Sc Microbiology</option>";
+              field +="<option>M.Sc Biochemistry</option>";
+              field +="<option>M.Sc Nutrition & Dietetics</option>";
+              field +="<option>M.Sc Mathematics</option>";
+              field +="<option>M.Sc Physics</option>";
+              field +="<option>M.Sc Chemistry</option>";
+              field +="<option>M.Sc Botany</option>";
+              field +="<option>M.Sc Zoology</option>";
+              field +="<option>M.Sc Applied Psychology</option>";
+              field +="<option>M.Sc Costume Design & Fashion</option>";
+              field +="<option>M.Com</option>";
+              field +="<option>M.B.A</option>";
+              field +="<option>M.C.A</option>";
               field +="</select>";
 
       $("#"+elem.id).html(field)

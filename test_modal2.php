@@ -214,7 +214,7 @@ if($gift==1){
 						</th>
 					</tr>
 					<tr>
-						<th>Subject: <?php echo $_POST['scode']." - ".$s->getsubname($_POST['scode']); ?></th>
+						<th>Subject: <?php echo $_POST['scode']; ?></th>
 					</tr>
 				</thead>
 			</table>

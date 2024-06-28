@@ -137,7 +137,7 @@ $s=new DBCON();
       <li><button class="btn btn-primary dataBtn " id='cre' data-url='createExam.php'>Create Exam</button></li>
       <li><button class="btn btn-primary dataBtn active" id='dtWise' data-url='districtWise.php'>District Wise</button></li>
       <li> <button class="btn btn-primary dataBtn" id='dateWise' data-url='datewise.php'>Date Wise</button></li>
-      <li><button class="btn btn-primary dataBtn" id='gw' data-url='count.php'>+2 Group Wise</button></li>
+      <li><button class="btn btn-primary dataBtn" id='gw' data-url='count.php'>UG Group Wise</button></li>
       <li><button class="btn btn-primary dataBtn" id='rw' data-url='colllege_pro.php'>Reference Wise</button></li>
       <li><button class="btn btn-primary dataBtn" id='sl' data-url='student_list.php'>Student List</button></li>
       <li><button class="btn btn-primary dataBtn" id='sa' data-url='slotAllotment.php'>Slot Allotment & List</button></li>
