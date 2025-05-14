@@ -32,7 +32,7 @@ while($row=mysqli_fetch_assoc($res)){
     $toe=$toe+$sce;
     // $sct=$s->getsubcount('Tamil',$scode);
     // $tot=$tot+$sct;
- print"<tr><td> $i</td><td>".$scode." - ".$row['subname']."</td><td class='text-center'>".$sce."</td></tr>";  
+ print"<tr><td> $i</td><td>".$scode."</td><td class='text-center'>".$sce."</td></tr>";  
 }
 $i=$i+1;
 print"<tr class='font-weight-bolder'><td><b>$i</b></td><td class='text-right font-weight-bolder'><b>Total</b></td><td class='text-center font-weight-bolder'><b>".$toe."</b></td></tr>";
