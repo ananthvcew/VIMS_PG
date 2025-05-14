@@ -4,11 +4,16 @@ $obj=new ExamDate();
 $res=$obj->getExamDate();
 //print_r($res);
 if($res['id']>0){
-if(date("Y-m-d",strtotime($res['es_date']))<=date('Y-m-d')){
-	header('Location:index10.php');
-}elseif($res['r_status']=='Active'){
-	header('Location:registrationForm.php');
-}
+	if($res['result']=='Open'){
+	header('Location:res.php');
+	}else{
+		if(date("Y-m-d",strtotime($res['es_date']))<=date('Y-m-d')){
+			header('Location:index10.php');
+		}elseif($res['r_status']=='Active'){
+			header('Location:registrationForm.php');
+		}
+	}
+
 }
 include('top.php');
 ?>
@@ -20,7 +25,7 @@ include('top.php');
 </div>
 <div class="row">
 	<div class="col-lg-12 mb-4">
-		<a href='res.php' class='btn btn-success'>View Result</a>
+		<!-- <a href='res.php' class='btn btn-success'>View Result</a> -->
 	</div>
 </div>
 <?php

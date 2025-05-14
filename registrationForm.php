@@ -1,6 +1,6 @@
 <?php
 include('top.php');
-$hsc=array("M.A Tamil","M.A English","M.Sc Computer Science","M.Sc Microbiology","M.Sc Biochemistry","M.Sc Biotechnology","M.Sc Nutrition & Dietetics","M.Sc Mathematics","M.Sc Physics","M.Sc Chemistry","M.Sc Botany","M.Sc Zoology","M.Sc Applied Psychology","M.Sc Costume Design & Fashion","M.Com","M.B.A","M.C.A");
+$hsc=array("M.E. - Computer Science and Engineering","M.E. - Power Systems Engineering","M.E. - VLSI Design","M.Tech. - Biotechnology","M.B.A","M.C.A","M.A Tamil","M.A English","M.Sc Computer Science","M.Sc Microbiology","M.Sc Biochemistry","M.Sc Biotechnology","M.Sc Nutrition & Dietetics","M.Sc Mathematics","M.Sc Physics","M.Sc Chemistry","M.Sc Botany","M.Sc Zoology","M.Sc Applied Psychology","M.Sc Costume Design & Fashion","M.Com");
 ?>
 <script>
     $(document).ready(function(){

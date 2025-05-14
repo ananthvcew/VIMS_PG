@@ -78,14 +78,16 @@ Instructions to Write the Exam/   தேர்வு வழிமுறைகள
 				$sql="select * from examination_date where year_of_exam='".date("Y")."'";
 				$res=mysqli_query($link,$sql);
 				while($row=mysqli_fetch_assoc($res)){
-					if(date("Y-m-d",strtotime($row['ee_date']))<date('Y-m-d')){
+					$sdate=$row['es_date']."09.30.00";
+					$edate=$row['ee_date']."18.00.00";
+					if(date("Y-m-d H:i:s",strtotime($edate))<date('Y-m-d H:i:s')){
 						echo $row['disc']." Exam Completed.<br> <font color=green>".$row['disc']." தேர்வு முடிந்தது.</font><br><br>";
-					}elseif(date("Y-m-d",strtotime($row['es_date']))<=date('Y-m-d') && date("Y-m-d",strtotime($row['ee_date']))>=date('Y-m-d') ){
+					}elseif(date("Y-m-d H:i:s",strtotime($sdate))<=date('Y-m-d H:i:s') && date("Y-m-d H:i:s",strtotime($edate))>=date('Y-m-d H:i:s') ){
 						echo "<center><font color=green><u>".$row['disc']."</u></font></center>";
 						?>
 						1. The Exam duration is  1 hour(60 Minutes)
 	 	            <br> 2. Total questions to be answered is 50
-	 	            <br><font color=green> 3.  username : Your UG Registration Number 
+	 	            <br><font color=green> 3.  username : Your +2 Registration Number 
 	 	            <br> 4. Password : Your Mobile Number </font>
 	 	            <br>
 	 	               1.தேர்வு காலம் 1 மணி நேரம் (60 நிமிடங்கள்)
@@ -96,6 +98,9 @@ Instructions to Write the Exam/   தேர்வு வழிமுறைகள
 	 	            <div class="col-lg-12 text-center"><center><a href='tempexam.php'> <button type="button" class="btn btn-primary ">Proceed with Exam <br> தேர்வைத் தொடரவும்</button></a></center></div>
 						<?php
 
+					}
+					elseif($row['result']=="Open"){
+						header('location:res.php');
 					}
 				}
 
@@ -132,6 +137,7 @@ Instructions to Write the Exam/   தேர்வு வழிமுறைகள
 </div>
 <?php
 	if($j==1){
+
 		echo "<a href='res.php' class='btn btn-success'>View Result</a>";
 	}
 ?>
