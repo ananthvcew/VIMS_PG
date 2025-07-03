@@ -15,6 +15,7 @@ if($_GET['t']=="msg"){
 			<th>Register No</th>
 			<th>Student Name</th>
 			<th>WhatsApp No</th>
+			<th>College</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -22,7 +23,7 @@ if($_GET['t']=="msg"){
 		$i=0;
 		foreach ($res as $key ) {
 			$i=$i+1;
-			echo "<tr><td>".$i."</td><td>".$key['at_regno']."</td><td>".$key['regno']."</td><td>".$key['name']."</td><td>".$key['cno2']."</td></tr>";
+			echo "<tr><td>".$i."</td><td>".$key['at_regno']."</td><td>".$key['regno']."</td><td>".$key['name']."</td><td>".$key['cno2']."</td><td>".$key['s_name']."</td></tr>";
 		}
 
 		?>

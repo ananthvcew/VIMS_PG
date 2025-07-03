@@ -23,7 +23,7 @@ $set=$_POST['set'];
 require('conn.php');
 $s=new DBCON();
 $link=$s->linkarivu();
-$sql    = "insert into ques values('$scode','$ttype','$set',$qno,'$ques','$opt1','$opt2','$opt3','$opt4','$cans','$mark')";
+$sql    = "INSERT INTO `ques`(`subcode`, `tcode`, `qset`, `qno`, `question`, `opt1`, `opt2`, `opt3`, `opt4`, `cans`, `mark`) VALUES ('$scode','$ttype','$set',$qno,'$ques','$opt1','$opt2','$opt3','$opt4','$cans','$mark')";
 //print $sql;
  $result= mysqli_query($link,$sql);
 if (!$result) {

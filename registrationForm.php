@@ -624,7 +624,7 @@ input:invalid:focus {
 			<select name='ref_college' id='ref_college' class="form-control">
 				    <option value=''>Select College</option>
 					<?php
-					$sql="select * from college order by order_no";
+					$sql="select * from college order by code";
 					//print$sql;
 					$res=mysqli_query($link,$sql);
 					if(!$res){

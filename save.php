@@ -140,7 +140,7 @@ else{
 		print"<br>கடவுச்சொல்  : ".$cno1." (உங்கள் தொடர்பு எண்)</font></b>";
 
 		// if(date('Y-m-d',strtotime($row['es_date']))>=date("Y-m-d") || date('Y-m-d',strtotime($row['ee_date']))<=date("Y-m-d") ){
-		 // Print"<br> இன்று (".date("d-M-Y").") காலை 10:00 மணி முதல் மாலை 6:00 மணி வரை உங்கள் தேர்வை எழுதலாம். <br>தேர்வுக்கான லிங்க் :  <a href='https://vcewsdc.in/VIMS_PG/index.php'>www.vcewsdc.in/VIMS_PG/</a>";
+		  //Print"<br> இன்று (".date("d-M-Y").") காலை 10:00 மணி முதல் மாலை 6:00 மணி வரை உங்கள் தேர்வை எழுதலாம். <br>தேர்வுக்கான லிங்க் :  <a href='https://vcewsdc.in/VIMS_PG/index.php'>www.vcewsdc.in/VIMS_PG/</a>";
 		//  }else{
 			print"<br>தேர்வுக்கான இணைய முகவரி தங்களது பதிவு செய்யப்பட்ட தொலைபேசி எண்ணுக்கு அனுப்பப்படும் ";
 		//}

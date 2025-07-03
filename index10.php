@@ -101,7 +101,9 @@ Instructions to Write the Exam/   தேர்வு வழிமுறைகள
 					}
 					elseif($row['result']=="Open"){
 						header('location:res.php');
-					}
+					}else{
+                     	echo "Exam Start at 90:30 AM";
+                    }
 				}
 
 
