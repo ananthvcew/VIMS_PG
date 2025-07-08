@@ -77,7 +77,7 @@ require('conn.php');
         // echo ;
         // die();
         // $pdf->Image("https://vcew.ac.in/vims/example_001_simple_png_output.php?t=".$row['regno'],156,73,48,48, "png");
-        $pdf->Image($row['id'].".png",159,76,42,42);
+        $pdf->Image("qrimg/".$row['id'].".png",159,76,42,42);
 		//$pdf->Image('result.png',160,77,40,40);
 	   // $html .="<br style='height: 1em;'>";
 		$pdf->Line(10,77,200,77);
