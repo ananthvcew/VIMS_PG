@@ -1,8 +1,20 @@
 <?php
+include('phpqrcode/phpqrcode.php');
+$text='https://vcewsdc.in/VIMS_PG/result1.php?t='.$_GET['t'];
+$path="qrimg/";
+$filename=$_GET['t'].'.png';
+$file=$path.$filename;
+fopen($filename, "w");
+$ecc="L";
+$pixel_size="10";
+$frame_size="2";
+QRcode::png($text,$file,$ecc,$pixel_size,$frame_size);
+
 require('html2pdf.php');
 
-
 error_reporting(0);
+
+
     $pdf=new PDF();
     $pdf->SetFont('times','',12);
     $pdf->AddPage();
@@ -27,11 +39,11 @@ error_reporting(0);
     
     
 $html='';
-$html .="<table><tr><td ALIGN='CENTER' width='750px'><font color='#151F70' SIZE='15'>SANKARI</font><br> <font color='RED' SIZE='29'>VIVEKANANDHA</font>";
-$html .="<br><font color='#151F70' SIZE='14'> EDUCATIONAL INSTITUTIONS FOR WOMEN <br> Tiruchengode, Namakkal Dt. & Sankari, Salem Dt.<br><font color='RED' SIZE='15'>www.vivekanandha.ac.in<br></td>";
+$html .="<table><tr><td ALIGN='CENTER' width='750px'> <font color='RED' SIZE='29'>VIVEKANANDHA</font>";
+$html .="<br><font color='#151F70' SIZE='14'> EDUCATIONAL INSTITUTIONS FOR WOMEN <br> Tiruchengode, Namakkal Dt. & Sankari, Salem Dt.<br><font color='RED' SIZE='15'>www.vivekanandha.ac.in<br><br></td>";
 $html .="</tr>";
 
- $html .="<tr><td ALIGN='CENTER' width='750px' bgcolor='#151F70'><font color='#FBFCFC' SIZE='14'><b>Vivekanandha Merit Scholarship Entrance Exam(Online) -".date('Y')." Results<b><br></td></tr>";   
+ $html .="<tr><td ALIGN='CENTER' width='750px' bgcolor='#151F70'><font color='#FBFCFC' SIZE='14'><b>Vivekanandha Merit Scholarship Entrance Exam PG (Online) -".date('Y')." Results<b><br></td></tr>";  
 
 require('conn.php');
     $s=new DBCON();
@@ -51,7 +63,7 @@ require('conn.php');
         $name="<font SIZE='14' color='RED'>Dear ".$row['name']."(".$row['regno'].")<br>";
         $html .="<tr><td>".$name;
         $html .="Welcome to the Vivekanandha Educational Institutions!<br>";
-        $html .="<font SIZE='12'  color='#151F70' line-height='100px'>Congratulations, Your Vivekanandha Merit Scholarship Exam - ".date('Y')." mark details are given below:<br>";
+        $html .="<font SIZE='12'  color='#151F70' line-height='100px'>Congratulations, Your Vivekanandha Merit Scholarship Exam PG - ".date('Y')." mark details are given below:<br>";
 //         $range="_________";
 // //         $range="_________We are happy to inform that you have been selected for availing the scholarship through Vivekanandha Merit Scholarship Exam - 2022. Kindly refer the tables below for your Grade and fee concession details.";
 //         $text = $pdf->WordWrap($range, 200);
@@ -67,7 +79,9 @@ require('conn.php');
         //$html .="<b>Vivekanandha Educational Institutions welcomes you to Learn, Safe and Succeed</b><br>";
         // echo ;
         // die();
-        $pdf->Image("https://vcew.ac.in/vims/example_001_simple_png_output.php?t=".$row['regno'],156,73,48,48, "png");
+        // $pdf->Image("https://vcew.ac.in/vims/example_001_simple_png_output.php?t=".$row['regno'],156,73,48,48, "png");
+        $pdf->Image("qrimg/".$row['regno'].".png",159,76,42,42);
+        //$pdf->Image('result.png',160,77,40,40);
        // $html .="<br style='height: 1em;'>";
         $pdf->Line(10,77,200,77);
         $pdf->Line(10,87,160,87);
@@ -99,9 +113,11 @@ require('conn.php');
 $ms=$row['mark'];
 // if($ms<8)
 // $ms=8;
+
+
          $html .="<table ><tr><td width='200' height='70'>VIMS Unique Number </td><td width='310' height='65'>".$s->getstdetail1($rno,'at_regno')."</td></tr><tr><td width='200' height='65'>Date of Birth</td><td width='310' height='65'>".date('d-M-Y',strtotime($row['dob']))."</td></tr><tr><td width='200' height='55'>Mark</td><td width='310' height='55'>".$ms."</td></tr>";
-         $html .="<tr><td width='200' height='60'>Exam Language</td><td width='310' height='60'>".$row['examlang']."</td></tr>";
-         $html .="<tr><td width='200' height='60'>HSC Group</td><td width='500' height='60'>".$s->getsubname($row['branch'])."</td></tr></table><br>";
+         $html .="<tr><td width='200' height='60'>UG Department</td><td width='310' height='60'>".$row['branch']."</td></tr>";
+         $html .="<tr><td width='200' height='60'>Preference HS</td><td width='500' height='60'>".$row['preperence']."</td></tr></table><br>";
          
         // $html .="<table border=1><tr><td colspan='5' width='760' height='50' ALIGN='CENTER' bgcolor='#151F70'><font color='#FBFCFC' size=13><b>Grades & Fee Concession *</font><font color='#151F70'></td></tr><tr><td height='50' width='310' ALIGN='CENTER'>Degree / Course</td><td ALIGN='CENTER' height='50' width='90'>A</td><td ALIGN='CENTER' height='50' width='90'>B</td><td ALIGN='CENTER' height='50' width='90'>C</td><td ALIGN='CENTER' height='50' width='90'>D</td><td ALIGN='CENTER' height='50' width='90'>E</td></tr>";
         // $html .="<tr><font size=12><td height='60' width='310' >Engineering (B.E./B.Tech.)</td><td height='60'  width='90'>Rs.25,000/-</td><td height='60'  width='90'>Rs.20,000/-</td><td height='60'  width='90'>Rs.15,000/-</td><td height='60'  width='90'>Rs.10,000/-</td><td height='60'  width='90'>Rs.5,000/-</td></tr>";
@@ -113,29 +129,29 @@ $ms=$row['mark'];
        //  }
        
         // $html .="</td></tr>";
-	      $html .="<tr><td colspan='5' width='760' height='75'><font color='red' size=11><u>Contact Admission Office with the following documents :</u></font> <br> <font color='#0000EE' size=12><b> a) Aadhar Card <br> b) 10th Mark Sheet <br> c) +1 Marksheet <br> d) +2 (HSC) Marksheet / +2 (HSC) Hall Ticket <br> e) Community certificate <br> f) TC if available <br> g) Passport size photo 2 Nos and <br> h) Printed or soft copy of VIMS Result. <br> (or) Any Available Certificate ";
-	     $html .="</font></td></tr></table>";
-	     // $html .="<table border=1><tr><td colspan='2'  ALIGN='CENTER' ><font color='white' bgcolor='navy' size=13></font></td></tr>";
-	     // $html .="<tr><td ALIGN='CENTER' ><br></td>";
-	     // $html .="<td ALIGN='CENTER' ><br> </td></tr></table>";
-    	
+          $html .="<tr><td colspan='5' width='760' height='75'><font color='red' size=11><u>Contact Admission Office with the following documents :</u></font> <br> <font color='#0000EE' size=12><b> a) Aadhar Card <br> b) UG All Mark Sheet & Consolidated Mark Sheet if available <br> c) Community certificate <br> d) TC & Course Completion Certificate  <br> e) Provisional Certificate if available <br> f) UG Degree Certificate if available <br> g) Passport size photo 2 Nos and <br> h) Printed or soft copy of VIMS Result. <br> (or) Any Available Certificate ";
+         $html .="</font></td></tr></table>";
+         // $html .="<table border=1><tr><td colspan='2'  ALIGN='CENTER' ><font color='white' bgcolor='navy' size=13></font></td></tr>";
+         // $html .="<tr><td ALIGN='CENTER' ><br></td>";
+         // $html .="<td ALIGN='CENTER' ><br> </td></tr></table>";
+        
     
     // $html .="<tr><td colspan='5' width='760' ALIGN='CENTER' ><font color='red' size=13>For further details & Admission Contact <br> </font></td></tr>";
-	     //$html .="<tr><td colspan='5' width='760' ALIGN='CENTER' ><font color='#151F70' size=13>Website Developed & Maintained by Software Development Cell / Vivekanandha College of Engineering Women</font></td></tr></table>";
+         //$html .="<tr><td colspan='5' width='760' ALIGN='CENTER' ><font color='#151F70' size=13>Website Developed & Maintained by Software Development Cell / Vivekanandha College of Engineering Women</font></td></tr></table>";
     }
 
         // $pdf->Ln(14);
       $pdf->WriteHTML($html);
-		$pdf->Ln(6)	;
-		$pdf->SetTextColor(255,0,0);
-    	$pdf->Cell(190,6,"For further details & Admission Contact",1,0,"C");
-		$pdf->Ln(6)	;$pdf->SetFillColor(230,230,0);
-		$pdf->SetTextColor(6, 57, 112);
-    	$pdf->Cell(95,6,"Sankagiri Campus",'TL',0,"C");
-    	$pdf->Cell(95,6,"Tiruchengode Campus","TLR",0,"C");
-		$pdf->Ln(6)	;
-		$pdf->SetTextColor(255,0,0);
-		$pdf->Cell(95,6,"94425 34564 & 97888 54417",'BL',0,"C");
-    	$pdf->Cell(95,6,"94437 34670 & 99655 34670","BLR",0,"C");
-      $pdf->Output('I',$row['regno'].'.pdf');
+        $pdf->Ln(6) ;
+        $pdf->SetTextColor(255,0,0);
+        $pdf->Cell(190,6,"For further details & Admission Contact",1,0,"C");
+        $pdf->Ln(6) ;$pdf->SetFillColor(230,230,0);
+        $pdf->SetTextColor(6, 57, 112);
+        $pdf->Cell(95,6,"Sankagiri Campus",'TL',0,"C");
+        $pdf->Cell(95,6,"Tiruchengode Campus","TLR",0,"C");
+        $pdf->Ln(6) ;
+        $pdf->SetTextColor(255,0,0);
+        $pdf->Cell(95,6,"94425 34564 & 97888 54417",'BL',0,"C");
+        $pdf->Cell(95,6,"94437 34670 & 99655 34670","BLR",0,"C");
+    $pdf->Output('I',$row['regno'].'.pdf');
 ?>
