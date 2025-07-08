@@ -1,6 +1,6 @@
 <?php
 include('phpqrcode/phpqrcode.php');
-$text='https://vcewsdc.in/VIMS_PG/result1.php?t='.$_POST['regno'];
+$text='https://vcewsdc.in/VIMS_PG/result1.php?t="'.$_POST['regno'].'"';
 $path="qrimg/";
 $filename=$_POST['regno'].'.png';
 $file=$path.$filename;
@@ -48,7 +48,7 @@ require('conn.php');
     $s=new DBCON();
     $link=$s->linkarivu();
     $rno=trim($_POST['regno']);
-  
+
       if(!($s->iswritten($rno)))
       {
           print "<h1>Check Your Register Number </h1>";
@@ -77,7 +77,7 @@ require('conn.php');
         // echo ;
         // die();
         // $pdf->Image("https://vcew.ac.in/vims/example_001_simple_png_output.php?t=".$row['regno'],156,73,48,48, "png");
-        $pdf->Image("qrimg/".$row['regno'].".png",159,76,42,42);
+        $pdf->Image($row['id'].".png",159,76,42,42);
 		//$pdf->Image('result.png',160,77,40,40);
 	   // $html .="<br style='height: 1em;'>";
 		$pdf->Line(10,77,200,77);
@@ -112,7 +112,7 @@ $ms=$row['mark'];
 // $ms=8;
 
 
-	     $html .="<table ><tr><td width='200' height='70'>VIMS Unique Number </td><td width='310' height='65'>".$s->getstdetail1($rno,'at_regno')."</td></tr><tr><td width='200' height='65'>Date of Birth</td><td width='310' height='65'>".date('d-M-Y',strtotime($row['dob']))."</td></tr><tr><td width='200' height='55'>Mark</td><td width='310' height='55'>".$ms."</td></tr>";
+	     $html .="<table ><tr><td width='200' height='70'>VIMS Unique Number </td><td width='310' height='65'>".$s->getstdetail1($row['regno'],'at_regno')."</td></tr><tr><td width='200' height='65'>Date of Birth</td><td width='310' height='65'>".date('d-M-Y',strtotime($row['dob']))."</td></tr><tr><td width='200' height='55'>Mark</td><td width='310' height='55'>".$ms."</td></tr>";
 	     $html .="<tr><td width='200' height='60'>UG Department</td><td width='310' height='60'>".$row['branch']."</td></tr>";
 	     $html .="<tr><td width='200' height='60'>Preference HS</td><td width='500' height='60'>".$row['preperence']."</td></tr></table><br>";
 	     

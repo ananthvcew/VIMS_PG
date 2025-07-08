@@ -327,10 +327,14 @@ else
 return null;	
 }
 
-function iswritten($rno)
+function iswritten($rno,$p=0)
 {
 $l=$this->linkarivu();
+if($p==0){
 	$sql    = "select regno from  result where  regno='".trim($rno)."'";
+}else{
+	$sql    = "select regno from  result where  id='".trim($rno)."'";
+}
 //	print $sql;
 $result = mysqli_query($l,$sql);  
 
