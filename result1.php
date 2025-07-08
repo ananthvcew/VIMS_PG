@@ -49,9 +49,7 @@ require('conn.php');
     $s=new DBCON();
     $link=$s->linkarivu();
     $rno=trim($_GET['t']);
-    if($rno<1)
-     { print "<h1>Check Your Register Number </h1>";
-      die();}
+    
       if(!($s->iswritten($rno)))
       {
           print "<h1>Check Your Register Number </h1>";
